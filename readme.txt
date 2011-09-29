@@ -1,4 +1,4 @@
-=== WP Top Posts Widget ===
+=== Clicky Popular Posts Widget ===
 Contributors: kobenland
 Tags: Clicky, SEO, widget, sidebar, google, links
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WLCU34ZKG32PU
