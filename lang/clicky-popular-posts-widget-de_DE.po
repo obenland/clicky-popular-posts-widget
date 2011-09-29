@@ -1,0 +1,124 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: clicky-api.php:142
+#@ clicky-popular-posts-widget
+msgid "Can't handle output type."
+msgstr "Kann nicht mit Output Typ umgehen."
+
+#. translators: plugin header field 'Name'
+#: clicky-popular-posts-widget.php:0
+#: clicky-popular-posts-widget.php:57
+#@ clicky-popular-posts-widget
+msgid "Clicky Popular Posts Widget"
+msgstr ""
+
+#. translators: plugin header field 'PluginURI'
+#: clicky-popular-posts-widget.php:0
+#@ clicky-popular-posts-widget
+msgid "http://www.obenlands.de/portfolio/clicky-popular-posts-widget?utm_source=wordpress&utm_medium=plugin&utm_campaign=clicky-popular-posts-widget"
+msgstr ""
+
+#. translators: plugin header field 'Author'
+#: clicky-popular-posts-widget.php:0
+#@ clicky-popular-posts-widget
+msgid "Konstantin Obenland"
+msgstr ""
+
+#. translators: plugin header field 'AuthorURI'
+#: clicky-popular-posts-widget.php:0
+#@ clicky-popular-posts-widget
+msgid "http://www.obenlands.de/?utm_source=wordpress&utm_medium=plugin&utm_campaign=clicky-popular-posts-widget"
+msgstr ""
+
+#. translators: plugin header field 'Version'
+#: clicky-popular-posts-widget.php:0
+#@ clicky-popular-posts-widget
+msgid "1.0"
+msgstr ""
+
+#. translators: plugin header field 'Description'
+#: clicky-popular-posts-widget.php:0
+#: clicky-popular-posts-widget.php:59
+#@ clicky-popular-posts-widget
+msgid "Display your top posts based on Clicky stats"
+msgstr "Zeige deine beliebtesten Artikel basierend auf Clicky Statistiken"
+
+#: clicky-popular-posts-widget.php:192
+#@ clicky-popular-posts-widget
+msgid "Title:"
+msgstr "Titel:"
+
+#: clicky-popular-posts-widget.php:197
+#@ clicky-popular-posts-widget
+msgid "Site ID:"
+msgstr "Site-ID:"
+
+#: clicky-popular-posts-widget.php:202
+#@ clicky-popular-posts-widget
+msgid "Site Key:"
+msgstr "Site Key:"
+
+#: clicky-popular-posts-widget.php:207
+#@ clicky-popular-posts-widget
+msgid "Number of posts to show:"
+msgstr "Anzahl der Artikel, die angezeigt werden:"
+
+#: clicky-popular-posts-widget.php:212
+#@ clicky-popular-posts-widget
+msgid "Post Types:"
+msgstr "Post Types:"
+
+#: clicky-popular-posts-widget.php:225
+#@ clicky-popular-posts-widget
+msgid "Date:"
+msgstr "Zeitspanne:"
+
+#: clicky-popular-posts-widget.php:229
+#@ clicky-popular-posts-widget
+msgid "Last seven days"
+msgstr "Letzte 7 Tage"
+
+#: clicky-popular-posts-widget.php:230
+#@ clicky-popular-posts-widget
+msgid "Last two weeks"
+msgstr "Letzte 2 Wochen"
+
+#: clicky-popular-posts-widget.php:231
+#@ clicky-popular-posts-widget
+msgid "Last 30 days"
+msgstr "Letzte 30 Tage"
+
+#: clicky-popular-posts-widget.php:232
+#@ clicky-popular-posts-widget
+msgid "Last 60 days"
+msgstr "Letzte 60 Tage"
+
+#: clicky-popular-posts-widget.php:233
+#@ clicky-popular-posts-widget
+msgid "Last 90 days"
+msgstr "Letzte 90 Tage"
+
+#: clicky-popular-posts-widget.php:234
+#@ clicky-popular-posts-widget
+msgid "Last 180 days"
+msgstr "Letzte 180 Tage"
+
