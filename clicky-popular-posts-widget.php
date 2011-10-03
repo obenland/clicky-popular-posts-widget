@@ -74,48 +74,64 @@ class Clicky_Popular_Posts_Widget extends WP_Widget {
 	 * @return	void
 	 */
 	public function widget( $args, $instance ) {
-		extract( $args );
-
-		$site_id	=	trim( $instance['site_id']  );
-		$site_key	=	trim( $instance['site_key']  );
-		if ( empty($site_id) OR  empty($site_key) ) {
-			return;
-		}
 		
-		$clicky		=	new Clicky_Api( $site_id, $site_key );
-		$articles	=	array();
-		$title		=	apply_filters( 'widget_title', $instance['title'] );
+		if ( false === ( $output = get_transient( $this->id ) ) ) {
 		
-		$top_posts	=	$clicky->get( 'pages', array(
-			'limit'		=>	20,
-			'date'		=>	$instance['date'],
-			'output'	=>	'json'
-		));
-		
-		foreach ( $top_posts[0]->dates[0]->items as $top_post ) {
-			$post_id	=	url_to_postid( $top_post->url );
-			if ( in_array(get_post_type($post_id), $instance['post_types'] ) ) {
-				$articles[]	=	$post_id;
-			}
-		}
-		$articles	=	array_unique( array_filter($articles) );
-		
-		if ( ! empty($articles) ) {
-			
-			$articles	=	array_slice( $articles, 0, absint($instance['number']) );
-
-			echo $before_widget . $before_title . $title . $after_title . '<ul>';
-			
-			foreach ( $articles as $article_id ) { ?>
-				<li>
-					<a href="<?php echo get_permalink( $article_id ); ?>" title="<?php echo esc_attr(strip_tags(get_the_title( $article_id ))); ?>">
-						<?php echo get_the_title( $article_id ); ?>
-					</a>
-				</li>
-			<?php
+			ob_start();
+			extract( $args );
+	
+			$site_id	=	trim( $instance['site_id']  );
+			$site_key	=	trim( $instance['site_key']  );
+			if ( empty($site_id) OR  empty($site_key) ) {
+				return;
 			}
 			
-			echo  '</ul>' . $after_widget;
+			$clicky		=	new Clicky_Api( $site_id, $site_key );
+			$clicky->flush_cache();
+			$articles	=	array();
+			$title		=	apply_filters( 'widget_title', $instance['title'] );
+			
+			$top_posts	=	$clicky->get( 'pages', array(
+				'limit'		=>	$instance['number'] + 20,
+				'date'		=>	$instance['date'],
+				'output'	=>	'json'
+			));
+			
+			if ( is_wp_error($top_posts) ) {
+				?><!-- <?php echo $top_posts->get_error_message(); ?> --><?php
+				ob_end_flush();
+				return;
+			}
+			
+			foreach ( $top_posts[0]->dates[0]->items as $top_post ) {
+				$post_id	=	url_to_postid( $top_post->url );
+				if ( in_array(get_post_type($post_id), $instance['post_types'] ) ) {
+					$articles[]	=	$post_id;
+				}
+			}
+			$articles	=	array_unique( array_filter($articles) );
+			
+			if ( ! empty($articles) ) {
+				
+				$articles	=	array_slice( $articles, 0, absint($instance['number']) );
+	
+				echo $before_widget . $before_title . $title . $after_title . '<ul>';
+				
+				foreach ( $articles as $article_id ) { ?>
+					<li>
+						<a href="<?php echo get_permalink( $article_id ); ?>" title="<?php echo esc_attr(strip_tags(get_the_title( $article_id ))); ?>">
+							<?php echo get_the_title( $article_id ); ?>
+						</a>
+					</li>
+				<?php
+				}
+				
+				echo  '</ul>' . $after_widget;
+			}
+			
+			set_transient( $this->id, ob_get_flush(), 60 * 60 * 24 );
+		} else {
+			echo $output;
 		}
 	}
 
@@ -152,6 +168,7 @@ class Clicky_Popular_Posts_Widget extends WP_Widget {
 		
 		$clicky	=	new Clicky_Api( $instance['site_id'], $instance['site_key'] );
 		$clicky->flush_cache();
+		delete_transient( $this->id );
 
 		return $instance;
 	}

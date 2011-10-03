@@ -134,8 +134,10 @@ class Clicky_Api {
 							break;
 						case 'xml':
 							$response	=	apply_filters( 'clicky_api_xml_response_handler', wp_remote_retrieve_body($response) );
+							break;
 						case 'csv':
 							$response	=	apply_filters( 'clicky_api_csv_response_handler', wp_remote_retrieve_body($response) );
+							break;
 						default:
 							return new WP_Error(
 								'clicky-api-output-error',
@@ -240,6 +242,10 @@ class Clicky_Api {
 		
 		$url			=	trailingslashit($this->url);
 		$args['type']	=	$type;
+		
+		if ( is_ssl() ) {
+			$url		=	str_replace( 'http://', "https://", $url );
+		}
 		
 		return add_query_arg(
 			wp_parse_args( $args, array(

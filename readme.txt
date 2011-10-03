@@ -25,7 +25,7 @@ Currently available in:
 
 == Installation ==
 
-1. Download WP Top Posts Widget.
+1. Download Clicky Popular Posts Widget.
 2. Unzip the folder into the `/wp-content/plugins/` directory
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Setup the Widget in the 'Widgets' menu in WordPress
@@ -42,6 +42,12 @@ None asked yet.
 
 
 == Changelog ==
+
+= 1.1 =
+* Added layer of caching
+* Added uninstall logic (delete cache on uninstall)
+* Improved error handling
+* Updated readme.txt
 
 = 1.0 =
 * Initial Release
