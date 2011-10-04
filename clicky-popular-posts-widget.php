@@ -4,7 +4,7 @@
  * Plugin Name:		Clicky Popular Posts Widget
  * Plugin URI:		http://www.obenlands.de/portfolio/clicky-popular-posts-widget?utm_source=wordpress&utm_medium=plugin&utm_campaign=clicky-popular-posts-widget
  * Description:		Display your top posts based on Clicky stats
- * Version:			1.0
+ * Version:			1.1
  * Author:			Konstantin Obenland
  * Author URI:		http://www.obenlands.de/?utm_source=wordpress&utm_medium=plugin&utm_campaign=clicky-popular-posts-widget
  * Text Domain: 	clicky-popular-posts-widget
