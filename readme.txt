@@ -4,7 +4,7 @@ Tags: Clicky, SEO, widget, sidebar, google, links
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WLCU34ZKG32PU
 Requires at least: 3.0
 Tested up to: 3.3
-Stable tag: 1.1
+Stable tag: 1.1.1
 
 Display your most popular posts, pages etc. based on your Clicky stats in your sidebar. 
 
@@ -42,6 +42,10 @@ None asked yet.
 
 
 == Changelog ==
+
+= 1.1.1 =
+* General code cleanup
+* Maintenance release
 
 = 1.1 =
 * Added layer of caching
