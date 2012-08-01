@@ -118,25 +118,25 @@ class Clicky_Api {
 	 */
 	public function get( $type, $args = array() ) {
 	
-		if ( false === ($response = $this->cache_get( $type )) ) {
+		if ( false === ( $response = $this->cache_get( $type ) ) ) {
 
-			$response	=	wp_remote_get( $this->build_url($type, $args) );
+			$response	=	wp_remote_get( $this->build_url( $type, $args ) );
 
 			if ( 200 == wp_remote_retrieve_response_code( $response ) ) {
 				
-				if ( isset($args['output']) ) {
+				if ( isset( $args['output'] ) ) {
 					switch ( $args['output'] ) {
 						case 'json':
-							$response	=	json_decode( wp_remote_retrieve_body($response) );
+							$response	=	json_decode( wp_remote_retrieve_body( $response ) );
 							break;
 						case 'php':
-							$response	=	maybe_unserialize( wp_remote_retrieve_body($response) );
+							$response	=	maybe_unserialize( wp_remote_retrieve_body( $response ) );
 							break;
 						case 'xml':
-							$response	=	apply_filters( 'clicky_api_xml_response_handler', wp_remote_retrieve_body($response) );
+							$response	=	apply_filters( 'clicky_api_xml_response_handler', wp_remote_retrieve_body( $response ) );
 							break;
 						case 'csv':
-							$response	=	apply_filters( 'clicky_api_csv_response_handler', wp_remote_retrieve_body($response) );
+							$response	=	apply_filters( 'clicky_api_csv_response_handler', wp_remote_retrieve_body( $response ) );
 							break;
 						default:
 							return new WP_Error(
@@ -151,7 +151,7 @@ class Clicky_Api {
 				
 				$this->cache_add( $type, $response );
 				
-			} else if ( ! is_wp_error($response) ) {
+			} else if ( ! is_wp_error( $response ) ) {
 			
 				$response	=	new WP_Error(
 					'clicky-api-request_failed',
@@ -174,7 +174,7 @@ class Clicky_Api {
 	 * @return	boolean
 	 */
 	public function flush_cache() {
-		unset( $this->cache[$this->site_id] );
+		unset( $this->cache[ $this->site_id ] );
 		return update_option( $this->textdomain, $this->cache );
 	}
 	
@@ -196,7 +196,7 @@ class Clicky_Api {
 	 * @return	bool
 	 */
 	private function cache_add( $type, $data ) {
-		$this->cache[$this->site_id][$type]	=	$data;
+		$this->cache[ $this->site_id ][ $type ]	=	$data;
 		return update_option( $this->textdomain, $this->cache );
 	}
 	
@@ -215,11 +215,11 @@ class Clicky_Api {
 	private function cache_get( $type = '' ) {
 	
 		if ( $type ) {
-			if ( isset($this->cache[$this->site_id][$type] ) ) {
-				return $this->cache[$this->site_id][$type];
+			if ( isset($this->cache[ $this->site_id ][ $type ] ) ) {
+				return $this->cache[ $this->site_id ][ $type ];
 			}
-		} elseif ( isset($this->cache[$this->site_id]) ) {
-			return $this->cache[$this->site_id];
+		} elseif ( isset($this->cache[ $this->site_id ]) ) {
+			return $this->cache[ $this->site_id ];
 		}
 		
 		return false;
@@ -240,7 +240,7 @@ class Clicky_Api {
 	 */
 	private function build_url( $type, $args = array() ) {
 		
-		$url			=	trailingslashit($this->url);
+		$url			=	trailingslashit( $this->url );
 		$args['type']	=	$type;
 		
 		if ( is_ssl() ) {
